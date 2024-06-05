@@ -5,45 +5,48 @@ import { Titulo } from './componentes/titulo';
 import { EntradaTexto } from './componentes/EntradaTexto';
 import { Botao } from './componentes/Botao';
 export default function Login() {
+  
+  const secoes = [
+    {
+      id: 1,
+      titulo: 'insira seus dados',
+      entradaTexto: [
+        {
+          id: 1,
+          label: 'Nome',
+          placeholder: 'Insira seu nome'
+        },
+        {
+          id: 2,
+          label: 'Email',
+          placeholder: 'Insira seu email'
+        },
+        {
+          id: 2,
+          label: 'Senha',
+          placeholder: 'Insira sua senha'
+        },
+        {
+          id: 2,
+          label: 'Repita a senha',
+          placeholder: 'Insira sua senha'
+        },
+      ]
+    }
+  ]
+
   return (
+     
     <VStack flex={1} alignItems= "center" justifyContent="top" p={5}>
       <Image source={Logo} alt="Logo Voll" />
 
-      <Titulo>
-        Insira alguns dados básicos
-      </Titulo>
+     
         <Box>
-          <FormControl mt={2}>
-            <FormControl.Label> Nome </FormControl.Label>
-            <EntradaTexto 
-            label="Nome"
-            placeholder="Insira seu nome"
-            />
-            
-          </FormControl>
-          <FormControl mt={2}>
-            <FormControl.Label>Email</FormControl.Label>
-            <EntradaTexto 
-            label="Email"
-            placeholder="Insira seu endereço de email"
-            />
-
-          </FormControl>
-          <FormControl mt={2}>
-            <FormControl.Label>Crie uma senha</FormControl.Label>
-            <EntradaTexto 
-            label="Senha"
-            placeholder="Insira sua senha"
-            />
-
-             </FormControl>
-          <FormControl mt={2}>
-            <FormControl.Label>Repita a sua senha</FormControl.Label>
-            <EntradaTexto 
-            label="Senha"
-            placeholder="Insira sua senha"
-            />
-          </FormControl>
+          {
+            secoes [0].entradaTexto.map(entrada => {
+              return <EntradaTexto label={entrada.label} placeholder={entrada.placeholder} />
+            })
+          }
 
         </Box>
           <Botao>Avançar</Botao>
